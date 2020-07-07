@@ -90,9 +90,8 @@ export class IptuFormComponent implements OnInit, OnDestroy {
     if(this.formIptuInformacoes.valid){
         var retorno = await this.movimentacaoService.addIptu(this.iptu)
         console.log('uid retorno', retorno);
-        // this.buildFormItem();
-        localStorage.removeItem('iptu');
-        this.router.navigate(['/iptu', 'relatorio']); 
+        this.buildFormIptu();
+       // this.router.navigate(['/iptu', 'relatorio']); 
     }
   }
  

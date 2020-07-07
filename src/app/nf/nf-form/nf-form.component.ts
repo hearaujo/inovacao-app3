@@ -67,7 +67,9 @@ export class NfFormComponent implements OnInit, OnDestroy {
 
    //carregando form
    private buildFormNf(): void {
-     console.log(this.data.value)
+
+
+
     this.formNfInformacoes = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
       cpf: ['', [Validators.required]],
@@ -78,6 +80,7 @@ export class NfFormComponent implements OnInit, OnDestroy {
       obs1: [''],
       obs2: [''],
     })
+    this.formNfInformacoes.clearValidators();
     //this.data = new FormControl((new Date(carregaNf.informacoes.data.seconds * 1000)));
    }
 
@@ -90,9 +93,9 @@ export class NfFormComponent implements OnInit, OnDestroy {
     if(this.formNfInformacoes.valid){
         var retorno = await this.movimentacaoService.addNf(this.nf)
         console.log('uid retorno', retorno);
-        // this.buildFormItem();
-        localStorage.removeItem('nf');
-        this.router.navigate(['/nf', 'relatorio']); 
+        this.buildFormNf();
+       
+        //this.router.navigate(['/nf', 'relatorio']); 
     }
   }
  

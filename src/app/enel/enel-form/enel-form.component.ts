@@ -90,9 +90,8 @@ export class EnelFormComponent implements OnInit, OnDestroy {
     if(this.formEnelInformacoes.valid){
         var retorno = await this.movimentacaoService.addEnel(this.enel)
         console.log('uid retorno', retorno);
-        // this.buildFormItem();
-        localStorage.removeItem('enel');
-        this.router.navigate(['/enel', 'relatorio']); 
+        this.buildFormEnel(); 
+        //this.router.navigate(['/rel', 'relatorio']); 
     }
   }
  

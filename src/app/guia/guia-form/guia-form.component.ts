@@ -90,9 +90,8 @@ export class GuiaFormComponent implements OnInit, OnDestroy {
     if(this.formGuiaInformacoes.valid){
         var retorno = await this.movimentacaoService.addGuia(this.guia)
         console.log('uid retorno', retorno);
-        // this.buildFormItem();
-        localStorage.removeItem('guia');
-        this.router.navigate(['/guia', 'relatorio']); 
+        this.buildFormGuia();  
+        //this.router.navigate(['/guia', 'relatorio']); 
     }
   }
  
